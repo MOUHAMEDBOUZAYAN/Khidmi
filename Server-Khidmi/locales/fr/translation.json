@@ -1,0 +1,53 @@
+{
+  "auth": {
+    "register": {
+      "success": "Inscription réussie",
+      "emailExists": "Email déjà utilisé",
+      "phoneExists": "Téléphone déjà utilisé",
+      "emailOrPhoneExists": "Email ou téléphone déjà utilisé"
+    },
+    "login": {
+      "success": "Connexion réussie",
+      "invalidCredentials": "Identifiants invalides",
+      "accountDisabled": "Votre compte est désactivé",
+      "emailRequired": "Email requis",
+      "passwordRequired": "Mot de passe requis"
+    },
+    "logout": {
+      "success": "Déconnexion réussie"
+    },
+    "password": {
+      "updateSuccess": "Mot de passe mis à jour",
+      "currentIncorrect": "Mot de passe actuel incorrect",
+      "newRequired": "Nouveau mot de passe requis"
+    },
+    "notAuthorized": "Non autorisé, pas de token",
+    "invalidToken": "Token invalide",
+    "userNotFound": "Utilisateur non trouvé"
+  },
+  "validation": {
+    "nameRequired": "Le nom est requis",
+    "nameLength": "Le nom doit contenir entre 2 et 50 caractères",
+    "emailRequired": "L'email est requis",
+    "emailInvalid": "Email invalide",
+    "phoneRequired": "Le téléphone est requis",
+    "phoneInvalid": "Numéro de téléphone marocain invalide",
+    "passwordRequired": "Le mot de passe est requis",
+    "passwordMinLength": "Le mot de passe doit contenir au moins 6 caractères",
+    "currentPasswordRequired": "Le mot de passe actuel est requis",
+    "errors": "Erreurs de validation"
+  },
+  "upload": {
+    "imageOnly": "Seules les images sont autorisées",
+    "fileTooLarge": "Fichier trop volumineux (max 5MB)",
+    "tooManyFiles": "Trop de fichiers"
+  },
+  "error": {
+    "notFound": "Ressource non trouvée",
+    "duplicateKey": "existe déjà",
+    "serverError": "Erreur serveur",
+    "badRequest": "Requête invalide",
+    "unauthorized": "Non autorisé"
+  }
+}
+

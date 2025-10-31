@@ -1,0 +1,53 @@
+{
+  "auth": {
+    "register": {
+      "success": "Registration successful",
+      "emailExists": "Email already exists",
+      "phoneExists": "Phone already exists",
+      "emailOrPhoneExists": "Email or phone already exists"
+    },
+    "login": {
+      "success": "Login successful",
+      "invalidCredentials": "Invalid credentials",
+      "accountDisabled": "Your account is disabled",
+      "emailRequired": "Email required",
+      "passwordRequired": "Password required"
+    },
+    "logout": {
+      "success": "Logout successful"
+    },
+    "password": {
+      "updateSuccess": "Password updated",
+      "currentIncorrect": "Current password incorrect",
+      "newRequired": "New password required"
+    },
+    "notAuthorized": "Not authorized, no token",
+    "invalidToken": "Invalid token",
+    "userNotFound": "User not found"
+  },
+  "validation": {
+    "nameRequired": "Name is required",
+    "nameLength": "Name must be between 2 and 50 characters",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email",
+    "phoneRequired": "Phone is required",
+    "phoneInvalid": "Invalid Moroccan phone number",
+    "passwordRequired": "Password is required",
+    "passwordMinLength": "Password must be at least 6 characters",
+    "currentPasswordRequired": "Current password is required",
+    "errors": "Validation errors"
+  },
+  "upload": {
+    "imageOnly": "Only images are allowed",
+    "fileTooLarge": "File too large (max 5MB)",
+    "tooManyFiles": "Too many files"
+  },
+  "error": {
+    "notFound": "Resource not found",
+    "duplicateKey": "already exists",
+    "serverError": "Server error",
+    "badRequest": "Bad request",
+    "unauthorized": "Unauthorized"
+  }
+}
+

@@ -1,0 +1,53 @@
+{
+  "auth": {
+    "register": {
+      "success": "تم التسجيل بنجاح",
+      "emailExists": "البريد الإلكتروني مستخدم بالفعل",
+      "phoneExists": "رقم الهاتف مستخدم بالفعل",
+      "emailOrPhoneExists": "البريد الإلكتروني أو رقم الهاتف مستخدم بالفعل"
+    },
+    "login": {
+      "success": "تم تسجيل الدخول بنجاح",
+      "invalidCredentials": "بيانات الدخول غير صحيحة",
+      "accountDisabled": "حسابك معطل",
+      "emailRequired": "البريد الإلكتروني مطلوب",
+      "passwordRequired": "كلمة المرور مطلوبة"
+    },
+    "logout": {
+      "success": "تم تسجيل الخروج بنجاح"
+    },
+    "password": {
+      "updateSuccess": "تم تحديث كلمة المرور",
+      "currentIncorrect": "كلمة المرور الحالية غير صحيحة",
+      "newRequired": "كلمة المرور الجديدة مطلوبة"
+    },
+    "notAuthorized": "غير مصرح، لا يوجد رمز",
+    "invalidToken": "رمز غير صالح",
+    "userNotFound": "المستخدم غير موجود"
+  },
+  "validation": {
+    "nameRequired": "الاسم مطلوب",
+    "nameLength": "يجب أن يكون الاسم بين 2 و 50 حرفًا",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "emailInvalid": "بريد إلكتروني غير صالح",
+    "phoneRequired": "رقم الهاتف مطلوب",
+    "phoneInvalid": "رقم هاتف مغربي غير صالح",
+    "passwordRequired": "كلمة المرور مطلوبة",
+    "passwordMinLength": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+    "currentPasswordRequired": "كلمة المرور الحالية مطلوبة",
+    "errors": "أخطاء التحقق"
+  },
+  "upload": {
+    "imageOnly": "يُسمح بالصور فقط",
+    "fileTooLarge": "الملف كبير جدًا (الحد الأقصى 5MB)",
+    "tooManyFiles": "الكثير من الملفات"
+  },
+  "error": {
+    "notFound": "الموارد غير موجودة",
+    "duplicateKey": "موجود بالفعل",
+    "serverError": "خطأ في الخادم",
+    "badRequest": "طلب خاطئ",
+    "unauthorized": "غير مصرح"
+  }
+}
+

@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const middleware = require('i18next-http-middleware');
 
 // Load environment variables
 dotenv.config();
@@ -11,12 +12,21 @@ dotenv.config();
 // Import database configuration
 const connectDB = require('./config/database');
 
+// Import i18n configuration
+const i18next = require('./config/i18n');
+
+// Import error handlers
+const { notFound, errorHandler } = require('./middlewares/error.middleware');
+
 // Initialize app
 const app = express();
 
 // Security middleware
 app.use(helmet());
 app.use(cors());
+
+// i18n middleware
+app.use(middleware.handle(i18next));
 
 // Body parser middleware
 app.use(express.json());
@@ -31,7 +41,7 @@ if (process.env.NODE_ENV === 'development') {
 connectDB();
 
 // Import routes (à ajouter progressivement)
-// const authRoutes = require('./routes/auth.routes');
+const authRoutes = require('./routes/auth.routes');
 // const userRoutes = require('./routes/user.routes');
 // const serviceRoutes = require('./routes/service.routes');
 // const bookingRoutes = require('./routes/booking.routes');
@@ -41,7 +51,7 @@ connectDB();
 // const paymentRoutes = require('./routes/payment.routes');
 
 // API Routes (à décommenter progressivement)
-// app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 // app.use('/api/users', userRoutes);
 // app.use('/api/services', serviceRoutes);
 // app.use('/api/bookings', bookingRoutes);
@@ -60,21 +70,10 @@ app.get('/health', (req, res) => {
 });
 
 // 404 handler
-app.use((req, res) => {
-  res.status(404).json({
-    success: false,
-    message: 'Route not found'
-  });
-});
+app.use(notFound);
 
 // Error handler
-app.use((err, req, res, next) => {
-  res.status(err.status || 500).json({
-    success: false,
-    message: err.message || 'Internal server error',
-    error: process.env.NODE_ENV === 'development' ? err : {}
-  });
-});
+app.use(errorHandler);
 
 // Start server
 const PORT = process.env.PORT || 5000;

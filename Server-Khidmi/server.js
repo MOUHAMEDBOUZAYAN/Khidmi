@@ -46,8 +46,8 @@ const userRoutes = require('./routes/user.routes');
 const serviceRoutes = require('./routes/service.routes');
 const bookingRoutes = require('./routes/booking.routes');
 const reviewRoutes = require('./routes/review.routes');
-// const messageRoutes = require('./routes/message.routes');
-// const subscriptionRoutes = require('./routes/subscription.routes');
+const messageRoutes = require('./routes/message.routes');
+const subscriptionRoutes = require('./routes/subscription.routes');
 // const paymentRoutes = require('./routes/payment.routes');
 
 // API Routes (à décommenter progressivement)
@@ -56,8 +56,8 @@ app.use('/api/users', userRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/reviews', reviewRoutes);
-// app.use('/api/messages', messageRoutes);
-// app.use('/api/subscriptions', subscriptionRoutes);
+app.use('/api/messages', messageRoutes);
+app.use('/api/subscriptions', subscriptionRoutes);
 // app.use('/api/payments', paymentRoutes);
 
 // Health check endpoint

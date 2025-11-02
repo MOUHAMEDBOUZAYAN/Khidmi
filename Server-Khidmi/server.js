@@ -48,7 +48,7 @@ const bookingRoutes = require('./routes/booking.routes');
 const reviewRoutes = require('./routes/review.routes');
 const messageRoutes = require('./routes/message.routes');
 const subscriptionRoutes = require('./routes/subscription.routes');
-// const paymentRoutes = require('./routes/payment.routes');
+const paymentRoutes = require('./routes/payment.routes');
 
 // API Routes (à décommenter progressivement)
 app.use('/api/auth', authRoutes);
@@ -58,7 +58,7 @@ app.use('/api/bookings', bookingRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/subscriptions', subscriptionRoutes);
-// app.use('/api/payments', paymentRoutes);
+app.use('/api/payments', paymentRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {

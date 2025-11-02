@@ -14,9 +14,11 @@ const userSchema = new mongoose.Schema({
     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Email invalide']
   },
   phone: {
-    type: String,
+    type: Number,
     required: [true, 'Le téléphone est requis'],
-    unique: true
+    unique: true,
+    minlength: 12,
+    maxlength: 12,
   },
   password: {
     type: String,

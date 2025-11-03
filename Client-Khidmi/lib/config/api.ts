@@ -1,6 +1,6 @@
 // Configuration API Base URL
 export const API_BASE_URL = __DEV__ 
-  ? 'http://localhost:5000/api'  // Développement
+  ? 'http://192.168.0.106:5000/api'  // Développement - IP de la machine
   : 'https://api.khidmi.ma/api';  // Production
 
 // Pour tester sur Android Emulator

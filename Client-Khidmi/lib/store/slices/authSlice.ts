@@ -33,12 +33,28 @@ export const register = createAsyncThunk(
   'auth/register',
   async (userData: { name: string; email: string; phone: string; password: string; role?: string }, { rejectWithValue }) => {
     try {
+      console.log('🔵 [REDUX] Register thunk appelé');
+      console.log('📋 [REDUX] Données envoyées:', { ...userData, password: '***' });
+      
       const response = await api.post('/auth/register', userData);
+      console.log('✅ [REDUX] Réponse reçue:', response.data);
+      
       await AsyncStorage.setItem('authToken', response.data.token);
       await AsyncStorage.setItem('user', JSON.stringify(response.data.user));
+      console.log('💾 [REDUX] Tokens sauvegardés dans AsyncStorage');
+      
       return response.data;
     } catch (error: any) {
-      return rejectWithValue(error.response?.data?.message || 'Erreur lors de l\'inscription');
+      console.log('❌ [REDUX] Erreur dans register thunk:', error);
+      console.log('❌ [REDUX] Status:', error.response?.status);
+      console.log('❌ [REDUX] Data:', error.response?.data);
+      console.log('❌ [REDUX] Message:', error.response?.data?.message);
+      console.log('❌ [REDUX] Stack:', error.stack);
+      
+      const errorMessage = error.response?.data?.message || error.message || 'Erreur lors de l\'inscription';
+      console.log('❌ [REDUX] Message d\'erreur final:', errorMessage);
+      
+      return rejectWithValue(errorMessage);
     }
   }
 );
@@ -99,16 +115,19 @@ const authSlice = createSlice({
     builder
       // Register
       .addCase(register.pending, (state) => {
+        console.log('⏳ [REDUX] Register pending - loading = true');
         state.loading = true;
         state.error = null;
       })
       .addCase(register.fulfilled, (state, action) => {
+        console.log('✅ [REDUX] Register fulfilled - utilisateur connecté:', action.payload.user?.email);
         state.loading = false;
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isAuthenticated = true;
       })
       .addCase(register.rejected, (state, action) => {
+        console.log('❌ [REDUX] Register rejected - erreur:', action.payload);
         state.loading = false;
         state.error = action.payload as string;
       })

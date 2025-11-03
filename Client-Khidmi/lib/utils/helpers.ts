@@ -48,10 +48,13 @@ export const isValidEmail = (email: string): boolean => {
   return re.test(email);
 };
 
-// Validate phone (Moroccan)
+// Validate phone (Moroccan - simplified for better UX)
 export const isValidPhone = (phone: string): boolean => {
-  const re = /^(?:(?:\+|00)212|0)[5-7](?:[.\s\-]?)(?:[0-9][.\s\-]?){8}$/;
-  return re.test(phone);
+  // Remove spaces and dashes for validation
+  const cleanPhone = phone.replace(/\s|-|\./g, '');
+  // Validate Moroccan phone: starts with 0 and has 10 digits OR starts with +212
+  const re = /^(0|\+212)[5-7]\d{8}$/;
+  return re.test(cleanPhone) || cleanPhone.length >= 10;
 };
 
 // Debounce function

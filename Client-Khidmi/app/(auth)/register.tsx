@@ -13,32 +13,44 @@ export default function RegisterScreen() {
   const [role, setRole] = useState<'client' | 'prestataire'>('client');
 
   const handleRegister = async () => {
+    console.log('🔵 [REGISTER] Début de l\'inscription');
+    console.log('📋 [REGISTER] Données:', { name, email, phone, role, passwordLength: password.length });
+
     if (!name || !email || !phone || !password) {
+      console.log('❌ [REGISTER] Champs manquants');
       Alert.alert('Erreur', 'Veuillez remplir tous les champs');
       return;
     }
 
     if (!isValidEmail(email)) {
+      console.log('❌ [REGISTER] Email invalide:', email);
       Alert.alert('Erreur', 'Email invalide');
       return;
     }
 
     if (!isValidPhone(phone)) {
+      console.log('❌ [REGISTER] Téléphone invalide:', phone);
       Alert.alert('Erreur', 'Numéro de téléphone invalide');
       return;
     }
 
     if (password.length < 6) {
+      console.log('❌ [REGISTER] Mot de passe trop court');
       Alert.alert('Erreur', 'Le mot de passe doit contenir au moins 6 caractères');
       return;
     }
 
     try {
+      console.log('🚀 [REGISTER] Envoi de la requête au backend...');
       await register({ name, email, phone, password, role });
+      console.log('✅ [REGISTER] Inscription réussie!');
       Alert.alert('Succès', 'Inscription réussie!', [
         { text: 'OK', onPress: () => router.replace('/(tabs)') }
       ]);
     } catch (err: any) {
+      console.log('❌ [REGISTER] Erreur:', err);
+      console.log('❌ [REGISTER] Message d\'erreur:', err.message);
+      console.log('❌ [REGISTER] Stack:', err.stack);
       Alert.alert('Erreur', err.message || 'Inscription échouée');
     }
   };
@@ -150,7 +162,6 @@ const styles = StyleSheet.create({
   roleContainer: {
     flexDirection: 'row',
     marginBottom: 20,
-    gap: 10,
   },
   roleButton: {
     flex: 1,
@@ -160,6 +171,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    marginRight: 10,
   },
   roleButtonActive: {
     backgroundColor: '#4A90E2',
